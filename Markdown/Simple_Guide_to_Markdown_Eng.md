@@ -1,4 +1,4 @@
-# Markdown
+# Markdown - Definition
 
 - Markdown is a simple markup language that requires a plain text.
 - Markdown is commonly used in developers' blogs as a static site generator (SSG).
@@ -6,7 +6,7 @@
 
 
 
-# Markdown - Basic Grammar
+# Markdown - Basic Syntax
 
 ## Heading
 
@@ -24,6 +24,8 @@
 
 Listing is divided to Ordered List and Unordered List.
 
+
+
 1. **Ordered List** 
 
 - The ordered list is displayed numerically. 
@@ -31,6 +33,7 @@ Listing is divided to Ordered List and Unordered List.
 - **i.e.**
   - 1. Strawberry
   - 2. Plum
+    2. 
 
 
 2. **Unordered List**
@@ -43,14 +46,16 @@ Listing is divided to Ordered List and Unordered List.
 
 **To Breakdown in the list, you can press  `tab`.**
 
-**i.e.**
+- **i.e.**
 
-- Strawberry
-  - Pineberry
+  - Strawberry
+    - Pineberry
 
-- Plum
-  - Aprium
-  - Sugar Plum
+
+  - Plum
+    - Aprium
+    - Sugar Plum
+
 
 
 
@@ -64,9 +69,11 @@ Listing is divided to Ordered List and Unordered List.
 
 - FCD starts with (**```**) sign plus codetype.
 
-  - i.e. (**```codetype**)
+- **i.e.** 
 
-- ```pyton
+  - (**```codetype**)
+
+  ```pyton
   print ("Hello World")
   ```
 
@@ -84,32 +91,79 @@ Listing is divided to Ordered List and Unordered List.
 
 ## Link
 
-- [문자열] (url) 형식으로 링크 시킬 수 있다. '[]+()' 형식으로 [] 과 () 사이에는 빈 공간이 없이 바로 붙여서 쓴다.
-- 사이트 뿐만 아니라 문서나 이미지 등의 특정 파일들도 연결 시킬 수 있다.
-- [이메일주소](jeongseob.korea@gmail.com)
+- To create Link, type `[Name](url)`  - No space between [] and ().
+- You can link not only a webpage but also images, documents, etc.
+- There is an **Absolute Path** and a **Relative Path**. 
+- To show or give permission to others to access or view your content, **you need to use a relative path**, not an absolute path.
+- A Relative path need `./` before type the name of the file.
+- **i.e.** 
+  - `[Name](./Relative path.md)`
+  - `[E-mail](Somebody's@email.com)`
 
 
 
 ## Blockquote
 
-- ">"를 통해 인용문을 작성하고 기호뒤에는 스페이스가 필요없이 바로 글을 쓰면 된다.
+- To create a Blockquote, use a sign `>` before the line of quote.
 
-- > This is how blockquote looks like
+- No need for space between `>` sign and quote line.
 
-## Table
+- i.e. 
 
-- | Syntax    | Description |
-  | --------- | ----------- |
-  | Header    | Title       |
-  | Paragraph | Text        |
+  - > “You must be the change you wish to see in the world.” — Gandhi
+
+
+
+## Cross Out (Strikethrough)
+
+- To cross out text, use double tilde `**~~**` sign before and after.
+- i.e.
+  - `~~Text~~`
+  - ~~Text~~
 
 
 
 ## Highlights
 
-- Bold 기호 ** 를 단어 혹은 문장 앞 뒤에 넣어준다 혹은 `ctrl+b` ex) **Bold**
-- Italic 기호 * 를 단어 혹은 문장 앞 뒤에 넣어준다 혹은 `ctrl+i`ex) *Italic*
+- **Bold** 
+  - To bold text, either use double asterisks ` **` sign, before and after the content or press `ctrl+b` 
+  - i.e. 
+    - `**Bold**`
+    - **Bold**
+
+- **Italic** 
+  - To  italicize text, either use asterisk ` *` sign, before and after the content or press  `ctrl+i`
+  -  i.e.
+    - `*Italic*`
+    - *Italic*
+
+
+
 
 ## Horizontal Rule
 
-- 3개 이상의 asterisks (***), dashes (---), or underscores (___)
+- To add a horizontal rule, uses **triple** asterisk `*, dashes -`, or underscores `_` and press the `enter`
+
+- i.e.
+
+  - asterisks `***`, dashes `---`, or underscores `___` + `enter`
+
+    ___
+
+
+
+## Table
+
+- To create a table, press `ctrl+t`
+
+- i.e.
+
+  - `ctrl` + `t`
+
+  - | Syntax    | Description |
+    | --------- | ----------- |
+    | Header    | Title       |
+    | Paragraph | Text        |
+
+
+

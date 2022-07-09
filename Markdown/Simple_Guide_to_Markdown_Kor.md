@@ -66,24 +66,27 @@ OL 과 UL 둘다 '1. ' 혹은 '- '형식으로 기호 뒤에는 스페이스가 
 
 - [문자열] (url) 형식으로 링크 시킬 수 있다. '[]+()' 형식으로 [] 과 () 사이에는 빈 공간이 없이 바로 붙여서 쓴다.
 - 사이트 뿐만 아니라 문서나 이미지 등의 특정 파일들도 연결 시킬 수 있다.
-- [이메일주소](jeongseob.korea@gmail.com)
+- 링크에는 절대경로와 상대경로가 있는데 타인에게도 보이기 위해서는 상대경로를 써야한다.
+  - i.e. `[Name](./Relative path.md)`
+  - `[E-mail](Somebody's@email.com)`
+
 
 
 
 ## Blockquote
 
-- ">"를 통해 인용문을 작성하고 기호뒤에는 스페이스가 필요없이 바로 글을 쓰면 된다.
+- `>` 를 통해 인용문을 작성하고 기호뒤에는 스페이스가 필요없이 바로 글을 쓰면 된다.
 
-- > This is how blockquote looks like
+- > "이 세상에서 보고 싶은 변화를 보기 위해서는 스스로 그 변화가 되어야 한다." - 간디
 
 
 
-## Table
+## Cross Out (Strkiethrough)
 
-- | Syntax    | Description |
-  | --------- | ----------- |
-  | Header    | Title       |
-  | Paragraph | Text        |
+- 취소선은 취소하고 싶은 내용 앞뒤로 `**~~**`  를 표시해주면 된다.
+- i.e.
+  - `~~Text~~`
+  - ~~Text~~
 
 
 
@@ -96,4 +99,28 @@ OL 과 UL 둘다 '1. ' 혹은 '- '형식으로 기호 뒤에는 스페이스가 
 
 ## Horizontal Rule
 
-- 3개 이상의 asterisks (***), dashes (---), or underscores (___)
+- 문서내에 수평선을 긋기 위해서는 3개 이상의 asterisk `*`, dashe `-`, or underscore `_` 를 사용하고 `enter` 를 눌러주면된다.
+
+- i.e.
+
+  - asterisks `***`, dashes `---`, or underscores `___` + `enter`
+
+    ___
+
+
+
+## Table
+
+- 표를 그리기 위해서는 `ctrl+t` 를 눌러준다.
+
+- i.e.
+
+  - `ctrl` + `t`
+
+  - | Syntax    | Description |
+    | --------- | ----------- |
+    | Header    | Title       |
+    | Paragraph | Text        |
+
+
+

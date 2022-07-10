@@ -23,7 +23,10 @@
     - Modified : Changes not staged for commit
     - Staged : Changes to be committed
   - Untracked : 버전으로 관리된 적 없는 파일 (파일을 새로 만든 경우)
-- ![Git's_file_status_lifecycle](Simple_Guide_to_Git_Kor.assets/Git's_file_status_lifecycle.png)
+
+![Git's_file_status_lifecycle](Simple_Guide_to_Git_Kor.assets/Git's_file_status_lifecycle.png)
+
+
 
 
 
@@ -39,7 +42,7 @@
 
 - `ls` : 목록 (list) 
 
-- `mkdir` : 디렉토리 생성 (make directory)
+- `mkdir` : 디렉토리 생성 (make directory, a.k.a. make folder)
 
 - `touch` : 파일 생성
 
@@ -57,12 +60,14 @@
 
 - `git log` : 커밋 (버전) 확인
 
-- `rm -rf .git` : git init (master) 를 삭제하려면
+- `rm -rf .git` : git init (master) 를 삭제
 
 - `git branch 브랜치 이름` : 브랜치 생성
 
 - `git checkout 브랜치 이름` : `브랜치이름` 의 브랜치로 전환
 
 - `git checkout -b 브랜치 이름` : 브랜치를 생성하며 바로 그 브랜치로 전환
+
+- `ctrl+c` : 최근 진행중인 명령 취소
 
   

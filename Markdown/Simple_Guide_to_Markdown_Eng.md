@@ -1,4 +1,6 @@
-# Markdown - Definition
+# Markdown
+
+## Markdown - Definition
 
 - Markdown is a simple markup language that requires a plain text.
 - Markdown is commonly used in developers' blogs as a static site generator (SSG).
@@ -6,9 +8,9 @@
 
 
 
-# Markdown - Basic Syntax
+## Markdown - Basic Syntax
 
-## Heading
+### Heading
 
 - To create a heading, add pound sign (#).
 - Markdown has a Heading level 1-6.
@@ -20,7 +22,7 @@
 
 
 
-## Listing
+### Listing
 
 Listing is divided to Ordered List and Unordered List.
 
@@ -59,7 +61,7 @@ Listing is divided to Ordered List and Unordered List.
 
 
 
-## Code Block
+### Code Block
 
 1. **Fenced Code Block**
 
@@ -89,7 +91,7 @@ Listing is divided to Ordered List and Unordered List.
 
 
 
-## Link
+### Link
 
 - To create Link, type `[Name](url)`  - No space between [] and ().
 - You can link not only a webpage but also images, documents, etc.
@@ -102,7 +104,7 @@ Listing is divided to Ordered List and Unordered List.
 
 
 
-## Blockquote
+### Blockquote
 
 - To create a Blockquote, use a sign `>` before the line of quote.
 
@@ -114,7 +116,7 @@ Listing is divided to Ordered List and Unordered List.
 
 
 
-## Cross Out (Strikethrough)
+### Cross Out (Strikethrough)
 
 - To cross out text, use double tilde `**~~**` sign before and after.
 - i.e.
@@ -123,7 +125,7 @@ Listing is divided to Ordered List and Unordered List.
 
 
 
-## Highlights
+### Highlights
 
 - **Bold** 
   - To bold text, either use double asterisks ` **` sign, before and after the content or press `ctrl+b` 
@@ -140,7 +142,7 @@ Listing is divided to Ordered List and Unordered List.
 
 
 
-## Horizontal Rule
+### Horizontal Rule
 
 - To add a horizontal rule, uses **triple** asterisk `*, dashes -`, or underscores `_` and press the `enter`
 
@@ -152,7 +154,7 @@ Listing is divided to Ordered List and Unordered List.
 
 
 
-## Table
+### Table
 
 - To create a table, press `ctrl+t`
 

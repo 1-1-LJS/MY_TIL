@@ -31,11 +31,11 @@ languages = ['python', 'perl', 'c', 'java']
 
 for lang in languages:
 if lang in ['python', 'perl']:
-print("%6s need interpreter" % lang)
-elif lang in ['c', 'java']:
-print("%6s need compiler" % lang)
-else:
-print("should not reach here")
+	print("%6s need interpreter" % lang)
+		elif lang in ['c', 'java']:
+	print("%6s need compiler" % lang)
+		else:
+	print("should not reach here")
 ```
 
 
@@ -43,6 +43,6 @@ print("should not reach here")
 
 
 3. 공식문서가 자세히 제공된다.
-     - 파이썬 공식문서 링크 https://docs.python.org/3/
+     - [파이썬 공식문서 링크](https://docs.python.org/3/)
 
    

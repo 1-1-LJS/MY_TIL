@@ -1,8 +1,14 @@
+word = input()
 
+result = {}
+for char in word:
+    if not char in result:
+        result[char] = 1
+    else:
+        result[char] = result[char] + 1
 
-
-
-
+for key in result:
+    print(key, result[key])
 
 
 

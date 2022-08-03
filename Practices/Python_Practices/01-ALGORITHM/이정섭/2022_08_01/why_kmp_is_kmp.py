@@ -20,13 +20,34 @@
 # for i in string:
 #     print(i[0], end= '')
 
-string = []
-upper = list(input().split('-'))
+# string = []
+# upper = list(input().split('-'))
 
-if upper in string:
+# if upper in string:
+#     string.pop()
+
+# else:
+#     string.append(upper)
+
+# print(string)
+
+string = []
+cap = list(input().split('-'))
+
+if cap in string:
     string.pop()
 
 else:
-    string.append(upper)
+    string.append(cap)
 
 print(string)
+
+
+# alt 2
+
+# n = input().split('-')
+# name = []
+# for i in range(len(n)):
+#     name.append(n[i][0])
+# print(''.join(name))
+

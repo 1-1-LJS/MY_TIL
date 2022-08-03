@@ -1,8 +1,8 @@
-n = int(input())
+T = int(input())
 n_list = []
 
 
-for i in range(n):
+for i in range(T):
     n_list.append(int(input()))
 
 num_list = sorted(n_list)

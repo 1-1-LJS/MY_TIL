@@ -10,5 +10,5 @@ for TC in range(1, T + 1):
         if i not in Submitted:
             F_list.append(i)
     
-    print(f'#{TC} {F_list}') # I cannot remove bracket from the list 'F_list'
+    print(f'#{TC}', *F_list) # I cannot remove bracket from the list 'F_list'
     

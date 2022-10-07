@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container py-5">
+    {% for review in reviews %}
+    <div class="card my-3">
+        <div class="card-body">
+            <h3 class="card-title">
+                <a class="text-black text-decoration-none" href="{% url 'reviews:detail' review.pk %}">
+                    {{ review.title }}
+                </a>
+            </h3>
+            <h6 class="card-subtitle mb-2 text-muted">{{ review.movie_name }}</h6>
+            <p class="card-text">{{ review.created_at|date:'Y-m-d H:i:s' }}</p>
+            <p class="card-text">
+                {% if review.grade == 1 %}
+                ⭐
+                {% elif review.grade == 2 %}
+                ⭐⭐
+                {% elif review.grade == 3 %}
+                ⭐⭐⭐
+                {% elif review.grade == 4 %}
+                ⭐⭐⭐⭐
+                {% elif review.grade == 5 %}
+                ⭐⭐⭐⭐⭐
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

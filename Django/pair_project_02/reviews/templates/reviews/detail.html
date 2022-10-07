@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container py-5">
+  <div class="card my-3">
+    <div class="card-body">
+      <h3 class="card-title mb-4">{{ review.title }}</h3>
+      <h6 class="card-subtitle mb-2 text-muted">{{ review.movie_name }}</h6>
+      <p class="card-text">
+        {{ review.updated_at|date:'Y-m-d H:i:s' }}
+        {% if review.created_at != review.updated_at %}
+        (수정됨)
+        {% endif %}
+      </p>
+      <p class="card-text">{{ review.content }}</p>
+      <p class="card-text">
+        {% if review.grade == 1 %}
+        ⭐
+        {% elif review.grade == 2 %}
+        ⭐⭐
+        {% elif review.grade == 3 %}
+        ⭐⭐⭐
+        {% elif review.grade == 4 %}
+        ⭐⭐⭐⭐
+        {% elif review.grade == 5 %}
+        ⭐⭐⭐⭐⭐
+        {% endif %}
+      <div class="d-flex flex-row-reverse">
+        <a class="btn btn-danger mx-3" href="{% url 'reviews:delete' review.pk %}">
+          삭제
+        </a>
+        <a class="btn btn-secondary mx-3" href="{% url 'reviews:update' review.pk %}">
+          수정
+        </a>
+      </div>
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

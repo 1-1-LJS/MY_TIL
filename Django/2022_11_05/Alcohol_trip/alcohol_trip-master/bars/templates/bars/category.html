@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{ % bootstrap_css % }
+{ % bootstrap_javascript % }
+{% load static %}
+{% block content %}
+<style>
+.card{
+  margin-bottom: 20px;
+}
+</style>
+
+<h3 style="text-align:center; margin-bottom:1.5rem; font-size:3rem; color:#545151; margin-top:3rem;"> "{{ k_category }}" 맛집 인기 검색순위 </h3>
+<br>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-4 g-8">
+      {% for restaurant in restaurants %}
+      <div class="col">
+        <a href="{% url 'bars:detail' restaurant.pk %}">
+        <div class="card" style="height:300px; border-radius:1.5rem;">
+          <img src="{{ restaurant.picture1 }}" class="card-img-top" alt="" style="height:200px;">
+          <div class="card-body">
+            <a href="" class="text-decoration-none card-title"><h5 style="font-size:35px; color:#545151; text-align:center;">{{ restaurant.name }}</h5></a>
+          </div>
+        </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    <!-- 페이징처리 시작 -->
+    <ul class="pagination justify-content-center pagination-lg">
+      <!-- 이전페이지 -->
+      {% if restaurants.has_previous %}
+      <li class="page-item">
+          <a class="page-link" href="?page={{ restaurants.previous_page_number }}&searched={{searched}}">이전</a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+          <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+      </li>
+      {% endif %}
+      <!-- 페이지리스트 -->
+      {% for page_number in restaurants.paginator.page_range %}
+      {% if page_number >= restaurants.number|add:-3 and page_number <= restaurants.number|add:3 %}
+      {% if page_number == restaurants.number %}
+      <li class="page-item active" aria-current="page">
+          <a class="page-link" href="?page={{ page_number }}&searched={{searched}}">{{ page_number }}</a>
+      </li>
+      {% else %}
+      <li class="page-item">
+          <a class="page-link" href="?page={{ page_number }}&searched={{searched}}">{{ page_number }}</a>
+      </li>
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+      <!-- 다음페이지 -->
+      {% if restaurants.has_next %}
+      <li class="page-item">
+          <a class="page-link" href="?page={{ restaurants.next_page_number }}&searched={{searched}}">다음</a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+          <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+      </li>
+      {% endif %}
+  </ul>
+  <!-- 페이징처리 끝 -->
+  </div>
+{% endblock %}

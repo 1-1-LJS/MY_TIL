@@ -1,0 +1,195 @@
+{% load django_bootstrap5 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>Alcohol Trip</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  {% comment %} 임시 폰트 {% endcomment %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  {% comment %} 여기까지 폰트 {% endcomment %}
+  {% bootstrap_css %}
+  {% block css %}
+  {% endblock css %}
+
+  {% block script %}
+  {% endblock script %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/3ef4088aa9.js" crossorigin="anonymous"></script>
+  {% comment %} lordicon 임포트 {% endcomment %}
+  <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+
+<style>
+.navbar-custom {
+  {% comment %} 살짝만 바꿔봄 {% endcomment %}
+  background-image: linear-gradient( 135deg, #f28fa4 10%, #919aff 100%);
+  {% comment %} background-image: linear-gradient( 135deg, red 10%, blue 100%); {% endcomment %}
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+
+/* change the link color and padding  */
+.navbar-custom .navbar-nav .nav-link {
+  color: bisque;
+  padding: .75rem 1rem;
+}
+
+body {
+  {% comment %} background-color: beige; {% endcomment %}
+  background-color: rgb(249, 249, 241);
+  font-family: 'Jua', sans-serif;
+}
+
+.navbar-menu li :hover {
+  background-color: #c498c6;
+  color: white !important;
+  border-radius: 2rem;
+}
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-scroller .nav-link {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: .875rem;
+}
+hr {
+  background-color: gray;
+  height:4px;
+  border : 0;
+}
+</style>
+</head>
+
+<body>
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-lg navbar-custom" style="font-size:30px;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'bars:index' %}">
+        <img class="" src="{% static 'images/logo.png' %}" alt="logo" height="100">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-custom"
+        aria-controls="navbar-custom" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar-custom">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-menu">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'bars:index' %}">홈</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              지역으로 술집 찾기
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'bars:region' "seoul" %}">서울</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:region' "gyeonggi" %}">경기</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:region' "incheon" %}">인천</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:region' "chungbuk" %}">충북</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:region' "chungnam" %}">충남</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:region' "jeonnam" %}">전남</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:region' "jeonbuk" %}">전북</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:region' "gangwon" %}">강원</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:region' "gyeongnam" %}">경남</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:region' "gyeongbuk" %}">경북</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:region' "jeju" %}">제주</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              카테고리로 술집 찾기
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'bars:category' "beer" %}">맥주,호프</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:category' "izakaya" %}">이자카야</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:category' "pojangmacha" %}">포장마차</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:category' "restaurant" %}">요리주점</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:category' "bar" %}">바(BAR)</a></li>
+              <li><a class="dropdown-item" href="{% url 'bars:category' "etc" %}">기타</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-menu">
+            {% if user.is_authenticated %} {# 유저가 로그인 중이면 #}
+              {% if user.profile_image %}
+              {% if 'http' in user.image_string %}
+                <a href="{% url 'accounts:userpage' request.user.pk %}" class="nav-link"><span class="p-2"><img class="profile-image rounded-circle" src="{{ user.profile_image }}" style="width: 3rem; height: 3rem;" alt=""></span>{{ user.name }} 님 페이지</a>
+              {% else %}
+                <a href="{% url 'accounts:userpage' request.user.pk %}" class="nav-link"><span class="p-2"><img class="profile-image rounded-circle" src="{{ user.profile_image.url }}" style="width: 3rem; height: 3rem;" alt=""></span>{{ user.name }} 님 페이지</a>
+              {% endif %}
+              {% endif %}
+          </li>
+          <li>
+            <a href="{% url 'accounts:logout' %}" class="nav-link">로그아웃</a>
+            {% else %}
+            <a href="{% url 'accounts:login' %}" class="nav-link">로그인</a>
+            <li>
+              <a href="{% url 'accounts:signup' %}" class="nav-link">회원가입</a>
+            </li>
+            {% endif %}
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+  {% block content %}{% endblock content %}
+  {% bootstrap_javascript %}
+
+  <footer class="text-center" style="font-size:1rem;">
+    <div class="position-sticky bottom-0 w-100 d-flex justify-content-center">
+      <div class="py-2">
+        <p class="m-0">
+          Alcohol Trip
+          <br>
+          김다겸, 김문경, 황여원, 이정섭
+        </p>
+      </div>
+    </div>
+    <div class="m-5">
+      <br>
+    </div>
+  </footer>
+</body>
+
+</html>

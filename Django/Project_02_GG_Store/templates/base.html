@@ -1,0 +1,97 @@
+{% load django_bootstrap5 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+  <title>GG Store</title>
+
+</head>
+
+{% block css %}
+{% endblock css %}
+
+{% block script %}
+{% endblock script %}
+
+<body>
+  <!-- Nav -->
+
+
+  {% block body %}{% endblock body %}
+  {% block content %}{% endblock content %}
+
+
+
+  <script>
+    var div2 = document.getElementsByClassName("search-txt");
+
+    function handleClick(event) {
+      console.log(event.target);
+      // console.log(this);
+      // 콘솔창을 보면 둘다 동일한 값이 나온다
+
+      console.log(event.target.classList);
+
+      if (event.target.classList[1] === "clicked") {
+        event.target.classList.remove("clicked");
+      } else {
+        for (var i = 0; i < div2.length; i++) {
+          div2[i].classList.remove("clicked");
+        }
+      }
+    }
+
+      function init() {
+        for (var i = 0; i < div2.length; i++) {
+          div2[i].addEventListener("click", handleClick);
+        }
+      }
+
+    init();
+
+    var target = document.querySelectorAll('.btn_open');
+    var btnPopClose = document.querySelectorAll('.pop_wrap .btn_close');
+    var targetID;
+
+    // 팝업 열기
+    for (var i = 0; i < target.length; i++) {
+      target[i].addEventListener('click', function () {
+        targetID = this.getAttribute('href');
+        document.querySelector(targetID).style.display = 'block';
+      });
+    }
+
+    // 팝업 닫기
+    for (var j = 0; j < target.length; j++) {
+      btnPopClose[j].addEventListener('click', function () {
+        this.parentNode.parentNode.style.display = 'none';
+      });
+    }
+  </script>
+
+  <footer class="text-center" style="font-size:1rem;">
+    <div class="position-sticky bottom-0 w-100 d-flex justify-content-center">
+      <p class="m-0 bg-white">© 2022 님아 돈 좀, Game Goods store by 17조</p>
+    </div>
+  </footer>
+</body>
+
+</html>

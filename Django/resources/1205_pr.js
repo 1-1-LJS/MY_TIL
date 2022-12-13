@@ -1,4 +1,3 @@
-console.log(123)
 
 
     var swiper = new Swiper(".mySwiper", {
